@@ -1,0 +1,18 @@
+/** page base **/
+
+body {
+  background-color: #FFF;
+  div.page {
+    border: none;
+    #main-content {
+      nav.tabs {
+        position: relative;
+        z-index: 999;
+        max-width: 1024px;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+@import "pages/_homepage.scss";
