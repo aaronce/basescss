@@ -1,5 +1,0 @@
-/** SASS WATCH FILE **/
-
-@import 'libs/bourbon/bourbon';
-@import "partials/_typography.scss";
-@import "partials/_base.scss";
