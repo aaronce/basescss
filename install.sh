@@ -20,9 +20,10 @@ GIT_IS_AVAILABLE=$?
 
 if [ $GIT_IS_AVAILABLE -eq 0 ];
 then
-	# do flag
+	GIT_IS_AVAILABLE="y"
 else
 	echo "git is not installed"
+	exit $? # exit with last cmd status
 fi
 
 
