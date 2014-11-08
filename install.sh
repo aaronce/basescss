@@ -12,6 +12,8 @@
 GIT_IS_AVAILABLE=""
 BOURBON_PROJECT=""
 COMPASS_PROJECT=""
+RUBY_IS_AVAILABLE=""
+RUBYGEM_IS_AVAILABLE=""
 
 
 # Check if git is installed.
@@ -26,7 +28,34 @@ else
 	exit $? # exit with last cmd status
 fi
 
+# Check if ruby is installed
+ruby -v 2>&1 >/dev/null
+RUBY_IS_AVAILABLE=$?
 
-# Ask what type of project to start
+if [ $RUBY_IS_AVAILABLE -eq 0 ];
+then
+	RUBY_IS_AVAILABLE="y"
+else
+	echo "ruby is not installed"
+	exit $? # exit with last cmd status
+fi
+
+# Check if gem is installed
+gem -v 2>&1 >/dev/null
+RUBYGEM_IS_AVAILABLE=$?
+
+if [ $RUBYGEM_IS_AVAILABLE -eq 0 ];
+then
+	RUBYGEM_IS_AVAILABLE="y"
+else
+	echo "ruby gem is not installed"
+	exit $? # exit with last cmd status
+fi
+
+# Ask what type of projects to start
+echo "Do you want to include compass (y / enter for no):"
+read COMPASS_PROJECT
+
 echo "Do you want to include thoughtbot/bourbon (y / enter for no):"
 read BOURBON_PROJECT
+
